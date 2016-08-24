@@ -55,7 +55,8 @@ mkdir -p "${PREFIX}/${BASE}/lib"
 ###############################################################################
 cd /tmp
 
-wget -q "http://keplerproject.github.io/luarocks/releases/${LUAROCKS}.tar.gz"
+# Fix for OSX Yosemite and above which do not come with wget installed 
+wget -q "http://keplerproject.github.io/luarocks/releases/${LUAROCKS}.tar.gz" 2>/dev/null || curl -O  "http://keplerproject.github.io/luarocks/releases/${LUAROCKS}.tar.gz"
 tar xzf "${LUAROCKS}.tar.gz"
 cd $LUAROCKS
 
